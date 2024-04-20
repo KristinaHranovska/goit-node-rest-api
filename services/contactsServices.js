@@ -41,14 +41,12 @@ async function removeContact(contactId) {
 
 }
 
-async function addContact(name, email, phone) {
+async function addContact(data) {
     try {
         const dataContacts = await listContacts();
         const newContact = {
             id: uuidv4(),
-            name,
-            email,
-            phone
+            ...data,
         }
         dataContacts.push(newContact)
         await fs.writeFile(contactsPath, JSON.stringify(dataContacts, null, 2))
@@ -59,9 +57,26 @@ async function addContact(name, email, phone) {
 
 }
 
+async function updateContact(contactId, data) {
+    try {
+        const dataContacts = await listContacts();
+        const indexUpdateContact = dataContacts.findIndex(contact => contact.id === contactId);
+        if (indexUpdateContact === -1) {
+            return null
+        }
+        dataContacts[indexUpdateContact] = { ...dataContacts[indexUpdateContact], ...data }
+        await fs.writeFile(contactsPath, JSON.stringify(dataContacts, null, 2))
+        return dataContacts[indexUpdateContact]
+    } catch (error) {
+        return null
+    }
+
+}
+
 module.exports = {
     listContacts,
     getContactById,
     removeContact,
-    addContact
+    addContact,
+    updateContact
 }
