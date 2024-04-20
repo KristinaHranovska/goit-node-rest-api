@@ -1,6 +1,14 @@
 const contactsService = require("../services/contactsServices");
+const { HttpError } = require("../helpers/HttpError");
+const contacts = require('../db/contacts')
 
-const getAllContacts = (req, res) => { };
+const getAllContacts = (req, res, next) => {
+    try {
+
+    } catch (error) {
+
+    }
+};
 
 const getOneContact = (req, res) => { };
 
@@ -14,5 +22,6 @@ module.exports = {
     getAllContacts,
     getOneContact,
     deleteContact,
+    createContact,
     updateContact
 }
