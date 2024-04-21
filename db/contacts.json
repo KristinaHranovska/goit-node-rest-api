@@ -58,5 +58,17 @@
     "name": "Kris",
     "email": "super@gmail.com",
     "phone": "(698) 256-6666"
+  },
+  {
+    "id": "9053e0a6-cc24-484b-973a-8f057d9960f9",
+    "name": "Anton",
+    "email": "kreki@gmail.com",
+    "phone": "(985) 658-9888"
+  },
+  {
+    "id": "3550278c-54b0-4049-b294-e3aa1e5f0cf7",
+    "name": "Marina",
+    "email": "marina_star@gmail.com",
+    "phone": "(123) 658-7777"
   }
 ]
