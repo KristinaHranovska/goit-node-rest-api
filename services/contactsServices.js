@@ -11,7 +11,6 @@ async function listContacts() {
     } catch (error) {
         return [];
     }
-
 }
 
 async function getContactById(contactId) {
