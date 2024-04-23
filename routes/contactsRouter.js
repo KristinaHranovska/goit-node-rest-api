@@ -6,6 +6,7 @@ const {
   deleteContact,
   createContact,
   updateContact,
+  updateStatusContact
 } = require("../controllers/contactsControllers");
 const { validateBody } = require('../helpers/validateBody');
 const { isValidId } = require('../helpers/isValidId');
@@ -23,5 +24,7 @@ contactsRouter.delete("/:id", isValidId, deleteContact);
 contactsRouter.post("/", validateBody(createContactSchema), createContact);
 
 contactsRouter.put("/:id", isValidId, validateBody(updateContactSchema), updateContact);
+
+contactsRouter.patch('/:id/favorite', isValidId, updateStatusContact)
 
 module.exports = contactsRouter;
