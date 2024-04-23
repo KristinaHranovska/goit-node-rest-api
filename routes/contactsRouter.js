@@ -10,14 +10,13 @@ const {
 
 const { validateBody } = require('../helpers/validateBody');
 
-const { createContactSchema,
-  updateContactSchema } = require('../schemas/contactsSchemas');
+const { schemas: { createContactSchema, updateContactSchema } } = require('../models/contact');
 
 const contactsRouter = express.Router();
 
 contactsRouter.get("/", getAllContacts);
 
-// contactsRouter.get("/:id", getOneContact);
+contactsRouter.get("/:id", getOneContact);
 
 // contactsRouter.delete("/:id", deleteContact);
 
