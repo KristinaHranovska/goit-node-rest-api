@@ -26,6 +26,15 @@ const registration = async (req, res, next) => {
     }
 }
 
+const authorization = async (req, res, next) => {
+    try {
+        console.log(req);
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = {
     registration,
+    authorization,
 }
