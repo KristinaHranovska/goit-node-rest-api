@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const Joi = require("joi");
 
-const { mongooseError } = require("../helpers/mongooseError");
+const { mongooseError } = require("../middlewares/mongooseError");
 
 const validationEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
