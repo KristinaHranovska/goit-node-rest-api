@@ -49,14 +49,13 @@ const createContact = async (req, res, next) => {
 const updateContact = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { data } = req.body
-        const result = await contactsService.updateContact(id, data);
+        const result = await contactsService.updateContact(id, req.body);
 
         if (!result) {
             throw HttpError(404, "Not found")
         }
 
-        if (!data || Object.keys(data).length === 0) {
+        if (!req.body || Object.keys(req.body).length === 0) {
             throw HttpError(400, "Body must have at least one field")
         }
 
