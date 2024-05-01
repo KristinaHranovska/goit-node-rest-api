@@ -3,7 +3,8 @@ const { Contact } = require('../models/contact')
 
 const getAllContacts = async (req, res, next) => {
     try {
-        const result = await Contact.find({}, "-createdAt, -updatedAt");
+        const { _id: owner } = req.user;
+        const result = await Contact.find({ owner }, "-createdAt, -updatedAt");
         res.json(result);
     } catch (error) {
         next(error)
@@ -39,7 +40,8 @@ const deleteContact = async (req, res, next) => {
 
 const createContact = async (req, res, next) => {
     try {
-        const result = await Contact.create(req.body);
+        const { _id: owner } = req.user;
+        const result = await Contact.create({ ...req.body, owner });
         res.status(201).json(result)
     } catch (error) {
         next(error)
