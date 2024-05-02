@@ -7,7 +7,8 @@ const {
   createContact,
   updateContact,
   updateStatusContact
-} = require("../controllers/contactsControllers");
+} = require("../controllers/index");
+
 const { validateBody } = require('../helpers/validateBody');
 const { isValidId } = require('../helpers/isValidId');
 const { schemas: { createContactSchema, updateContactSchema } } = require('../models/contact');
