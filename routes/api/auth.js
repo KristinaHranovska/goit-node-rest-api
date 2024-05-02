@@ -2,7 +2,8 @@ const express = require('express');
 const { validateBody } = require('../../helpers/validateBody');
 const { schemas: { regisSchema,
     authSchema } } = require('../../models/user');
-const { registration, authorization, getCurrentUser, logout, subscriptionUpdate } = require('../../controllers/auth');
+
+const { registration, authorization, getCurrentUser, logout, subscriptionUpdate } = require('../../controllers/index');
 const { authenticate } = require('../../middlewares/authenticate');
 
 const router = express.Router();
