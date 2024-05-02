@@ -54,7 +54,7 @@ const authorization = async (req, res, next) => {
             email: user.email,
             subscription: user.subscription,
 
-            // token
+            token
         })
 
     } catch (error) {
@@ -75,10 +75,36 @@ const getCurrentUser = async (req, res) => {
     }
 }
 
-const logout = async (req, res) => {
+const logout = async (req, res, next) => {
     try {
         const { _id } = req.user;
         await User.findByIdAndUpdate(_id, { token: "" });
+
+        next(HttpError(204, "No Content"));
+    } catch (error) {
+        next(error)
+    }
+}
+
+const subscriptionUpdate = async (req, res, next) => {
+    try {
+        const { subscription: newValueSub, } = req.body;
+        const { email, _id } = req.user;
+
+        switch (newValueSub) {
+            case ('starter'):
+            case ('business'):
+            case ('pro'):
+                const updatedUser = await User.findOneAndUpdate({ _id }, { subscription: newValueSub }, { new: true });
+                res.json({
+                    email,
+                    subscription: updatedUser.subscription
+                })
+                break;
+            default:
+                res.status(400).json({ message: 'This subscription does not exist' });
+        }
+
     } catch (error) {
         next(error)
     }
@@ -89,4 +115,5 @@ module.exports = {
     authorization,
     getCurrentUser,
     logout,
+    subscriptionUpdate
 }
