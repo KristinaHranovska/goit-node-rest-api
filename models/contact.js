@@ -16,8 +16,8 @@ const contactSchema = new Schema({
     },
     phone: {
         type: String,
-        match: phoneRegExp,
-        required: [true, 'Invalid number, enter by format (xxx) xxx-xxxx'],
+        match: [phoneRegExp, 'Invalid phone number format. Use (XXX) XXX-XXXX'],
+        required: true,
     },
     favorite: {
         type: Boolean,
