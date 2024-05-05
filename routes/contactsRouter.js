@@ -11,7 +11,7 @@ const {
 
 const { validateBody } = require('../helpers/validateBody');
 const { isValidId } = require('../helpers/isValidId');
-const { schemas: { createContactSchema, updateContactSchema } } = require('../models/contact');
+const { schemas: { createContactSchema, updateContactSchema, updateFavorite } } = require('../models/contact');
 const { authenticate } = require("../middlewares/authenticate");
 
 
@@ -27,6 +27,6 @@ contactsRouter.post("/", authenticate, validateBody(createContactSchema), create
 
 contactsRouter.put("/:id", authenticate, isValidId, validateBody(updateContactSchema), updateContact);
 
-contactsRouter.patch('/:id/favorite', authenticate, isValidId, updateStatusContact)
+contactsRouter.patch('/:id/favorite', authenticate, isValidId, validateBody(updateFavorite), updateStatusContact)
 
 module.exports = contactsRouter;
