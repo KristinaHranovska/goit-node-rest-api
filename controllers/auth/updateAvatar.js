@@ -22,7 +22,6 @@ const updateAvatar = async (req, res, next) => {
 
         await fs.unlink(tempUpload);
         const avatarURL = path.join("avatars", fileName);
-        console.log(avatarURL);
 
         await User.findByIdAndUpdate(_id, { avatarURL });
 
