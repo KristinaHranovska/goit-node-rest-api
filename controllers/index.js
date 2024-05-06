@@ -10,5 +10,6 @@ const authorization = require("./auth/authorization");
 const getCurrentUser = require("./auth/getCurrentUser");
 const logout = require("./auth/logout");
 const subscriptionUpdate = require("./auth/subscriptionUpdate");
+const updateAvatar = require("./auth/updateAvatar");
 
-module.exports = { getAllContacts, getOneContact, deleteContact, createContact, updateContact, updateStatusContact, registration, authorization, getCurrentUser, logout, subscriptionUpdate };
+module.exports = { getAllContacts, getOneContact, deleteContact, createContact, updateContact, updateStatusContact, registration, authorization, getCurrentUser, logout, subscriptionUpdate, updateAvatar };
