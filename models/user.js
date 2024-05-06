@@ -22,14 +22,14 @@ const userSchema = new Schema({
         enum: ["starter", "pro", "business"],
         default: "starter"
     },
+    avatarURL: {
+        type: String,
+        require: true,
+    },
     token: {
         type: String,
         default: null,
     },
-    avatarURL: {
-        type: String,
-        require: true,
-    }
 }, { versionKey: false, timestamps: true });
 
 userSchema.post('save', mongooseError);
