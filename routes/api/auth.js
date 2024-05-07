@@ -8,12 +8,12 @@ const { authenticate } = require('../../middlewares/authenticate');
 
 const router = express.Router();
 
-router.post('/users/register', validateBody(regisSchema), registration);
-router.post('/users/login', validateBody(authSchema), authorization);
-router.post('/users/logout', authenticate, logout);
+router.post('/register', validateBody(regisSchema), registration);
+router.post('/login', validateBody(authSchema), authorization);
+router.post('/logout', authenticate, logout);
 
-router.get('/users/current', authenticate, getCurrentUser);
+router.get('/current', authenticate, getCurrentUser);
 
-router.patch('/users', authenticate, subscriptionUpdate);
+router.patch('/', authenticate, subscriptionUpdate);
 
 module.exports = router;
