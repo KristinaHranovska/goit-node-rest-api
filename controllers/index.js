@@ -11,5 +11,7 @@ const getCurrentUser = require("./auth/getCurrentUser");
 const logout = require("./auth/logout");
 const subscriptionUpdate = require("./auth/subscriptionUpdate");
 const updateAvatar = require("./auth/updateAvatar");
+const verifyEmail = require("./auth/verifyEmail");
+const resendVerifyEmail = require("./auth/resendVerifyEmail");
 
-module.exports = { getAllContacts, getOneContact, deleteContact, createContact, updateContact, updateStatusContact, registration, authorization, getCurrentUser, logout, subscriptionUpdate, updateAvatar };
+module.exports = { getAllContacts, getOneContact, deleteContact, createContact, updateContact, updateStatusContact, registration, authorization, getCurrentUser, logout, subscriptionUpdate, updateAvatar, verifyEmail, resendVerifyEmail };
