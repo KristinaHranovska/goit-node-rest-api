@@ -23,7 +23,8 @@ const registration = async (req, res, next) => {
         const newUser = await User.create({ ...req.body, password: hashPassword, avatarURL, verificationToken });
 
         const verifyEmail = {
-            to: email, subject: "Verify your email",
+            to: email,
+            subject: "Verify your email",
             html: `<a target="_blank" href="${BASE_URL}/api/users/verify/${verificationToken}">Click verify your email</a>`
         }
 
