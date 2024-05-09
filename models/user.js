@@ -49,6 +49,7 @@ const regisSchema = Joi.object({
     token: Joi.string(),
 });
 
+
 const emailSchema = Joi.object({
     email: Joi.string().pattern(validationEmail).required(),
 })
