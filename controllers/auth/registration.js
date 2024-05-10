@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const gravater = require("gravatar");
 const { v4: uuidv4 } = require('uuid');
 
